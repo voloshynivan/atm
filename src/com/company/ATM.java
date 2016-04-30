@@ -5,48 +5,24 @@ package com.company;
  */
 public class ATM {
 
-    State noMoneyState;
-    State hasMoneyState;
+    Handler handler = new Handler();
 
-    State state = noMoneyState;
-    int count = 0;
-
-    public ATM(int number){
-        noMoneyState = new NoMoney(this);
-        hasMoneyState = new HasMoney(this);
-        this.count = number;
-        if (number > 0) {
-            state = hasMoneyState;
-        } else {
-            state = noMoneyState;
-        }
+    //Just text to let user know that the program is started.
+    public static void sayHi(){
+        System.out.println("### Welcome to ATM.");
+        System.out.println("### Please start using it by adding some money to it in format + <currency> <value> <number>  and press ENTER");
+        System.out.println("### After it you will be able to take money back using format - <currency> <amount> and press ENTER");
+        System.out.println("### If you want to close the program - just press ENTER");
     }
 
-    public void setState (State state){
-        this.state = state;
+    //Letting user know that ATM is shutting down
+    public static void sayBye(){
+        System.out.println("Thank you for using ATM");
     }
 
-    public void doPlus(int value){
-        state.doPlus(value);
+    //In this Method we are taking the user input and doing appropriate actions
+    public void takeUserInput(String userInput){
+        handler.handleInput(userInput);
     }
 
-    public void doMinus(int value){
-        state.doMinus(value);
-    }
-
-    public State getHasMoneyState (){
-        return this.hasMoneyState;
-    }
-
-    public State getNoMoneyState (){
-        return this.noMoneyState;
-    }
-
-    public int getCount (){
-        return this.count;
-    }
-
-    public void setCount (int count){
-        this.count = count;
-    }
 }

@@ -1,37 +1,25 @@
 package com.company;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Main {
 
-    public static void main(String[] args) {
-        ATM atm = new ATM(0);
-        System.out.println(atm);
-        atm.doMinus(2);
-        atm.doPlus(10);
-        atm.doMinus(8);
-        atm.doMinus(8);
+    public static void main(String[] args) throws IOException {
 
+        ATM atm = new ATM();
 
+        atm.sayHi();
 
-
-/*
-        try{
-            InputStreamReader ir = new InputStreamReader(System.in);
-            BufferedReader br = new BufferedReader(ir);
-            System.out.println("Please enter any string::");
-            String inputString = br.readLine();
-            if (inputString.startsWith("+")) {
-                System.out.println("You Entered ::" + inputString);
-            } else {
-                System.out.println("something bad happened");
-            }
-        } catch (Exception IO){
-
+        //InputStreamReader is used to read user input from command line
+        String s;
+        BufferedReader stdin = new BufferedReader(
+                new InputStreamReader(System.in));
+        while ((s = stdin.readLine()) != null && s.length()!=0){
+            atm.takeUserInput(s);
         }
-*/
-    }
 
+        atm.sayBye();
+
+    }
 
 }
