@@ -1,11 +1,23 @@
-package com.company;
+package com.atm;
 
-/**
- * Created by ivoloshyn on 4/11/2016.
- */
+import java.io.*;
+
 public class ATM {
 
-    Handler handler = new Handler();
+    public static void main(String[] args) throws IOException {
+        Handler handler = new Handler();
+        sayHi();
+
+        //InputStreamReader is used to read user input from command line
+        String s;
+        BufferedReader stdin = new BufferedReader(
+                new InputStreamReader(System.in));
+        while ((s = stdin.readLine()) != null && s.length()!=0){
+        handler.handleInput(s);
+        }
+
+        sayBye();
+    }
 
     //Just text to let user know that the program is started.
     public static void sayHi(){
@@ -18,11 +30,6 @@ public class ATM {
     //Letting user know that ATM is shutting down
     public static void sayBye(){
         System.out.println("Thank you for using ATM");
-    }
-
-    //In this Method we are taking the user input and doing appropriate actions
-    public void takeUserInput(String userInput){
-        handler.handleInput(userInput);
     }
 
 }

@@ -1,4 +1,4 @@
-package com.company;
+package com.atm;
 
 /**
  * Created by ivoloshyn on 4/23/2016.
