@@ -18,7 +18,7 @@ public class MoneyBox implements IMoneyBox {
 
     @Override
     public void getMoney(String currency, int amount, ILog log) {
-        if(moneyStorage.isPossibleToRemoveMoney(currency, amount)){
+        if (moneyStorage.isPossibleToRemoveMoney(currency, amount)) {
             moneyStorage.removeMoney(currency, amount);
         }
         log.log(failToGetMoney);

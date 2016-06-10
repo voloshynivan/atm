@@ -7,6 +7,8 @@ import com.atm.logs.ILog;
  */
 public interface IMoneyBox {
     void getMoney(String currency, int amount, ILog log);
+
     void putMoney(String currency, int nominal, int number);
+
     void showMoney(ILog log);
 }

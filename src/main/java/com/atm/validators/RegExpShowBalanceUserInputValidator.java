@@ -6,7 +6,7 @@ package com.atm.validators;
 public class RegExpShowBalanceUserInputValidator extends RegExpBaseUserInputValidator {
     public String pattern = "\\?";
 
-    public RegExpShowBalanceUserInputValidator(){
+    public RegExpShowBalanceUserInputValidator() {
         super.setPattern(pattern);
     }
 }

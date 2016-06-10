@@ -10,5 +10,6 @@ import java.util.Map;
  */
 public interface IAlgo {
     void removeMoney(Map<String, HashMap<Integer, Integer>> currentBalance, String currency, int amount);
+
     boolean isAlgorithmPossible(Map<String, HashMap<Integer, Integer>> currentBalance, String currency, int amount);
 }

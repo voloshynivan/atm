@@ -16,7 +16,7 @@ public class GetMoneyAction extends BaseAction {
         super.setFailedMessage(failedMessage);
     }
 
-    void doAction(String userInput){
+    void doAction(String userInput) {
         moneyBox.getMoney(UserInputParser.getCurrency(userInput), UserInputParser.getAmount(userInput), log);
     }
 

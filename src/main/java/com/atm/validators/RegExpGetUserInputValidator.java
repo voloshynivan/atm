@@ -6,7 +6,7 @@ package com.atm.validators;
 public class RegExpGetUserInputValidator extends RegExpBaseUserInputValidator {
     public String pattern = "\\-\\s[A-Z]{3}\\s\\d+";
 
-    public RegExpGetUserInputValidator(){
+    public RegExpGetUserInputValidator() {
         super.setPattern(pattern);
     }
 

@@ -9,12 +9,12 @@ public class ExplainMistakeAction extends BaseAction {
         super(userInput);
     }
 
-    void doAction(String userInput) {
-        log.log("ATM doesn't understand the operation based on your input: \"" + userInput + "\"");
-    }
-
     @Override
     public void execute() {
         doAction(userInput);
+    }
+
+    void doAction(String userInput) {
+        log.log("ATM doesn't understand the operation based on your input: \"" + userInput + "\"");
     }
 }

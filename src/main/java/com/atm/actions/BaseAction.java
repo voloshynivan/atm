@@ -16,8 +16,6 @@ public abstract class BaseAction {
     String userInput;
     String failedMessage;
 
-    abstract void doAction(String userInput);
-
     public BaseAction(String userInput) {
         this.userInput = userInput;
         log = new SOUTLog();
@@ -35,5 +33,7 @@ public abstract class BaseAction {
             log.log(this.failedMessage);
         }
     }
+
+    abstract void doAction(String userInput);
 
 }

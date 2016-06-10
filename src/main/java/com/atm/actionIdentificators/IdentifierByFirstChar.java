@@ -9,13 +9,13 @@ public class IdentifierByFirstChar implements IIdentifier {
     public static final String showBalanceIdentifier = "?";
 
     @Override
-    public boolean isPutMoneyAction(String userInput) {
-        return userInput.startsWith(putMoneyIdentifier);
+    public boolean isGetMoneyAction(String userInput) {
+        return userInput.startsWith(getMoneyIdentifier);
     }
 
     @Override
-    public boolean isGetMoneyAction(String userInput) {
-        return userInput.startsWith(getMoneyIdentifier);
+    public boolean isPutMoneyAction(String userInput) {
+        return userInput.startsWith(putMoneyIdentifier);
     }
 
     @Override

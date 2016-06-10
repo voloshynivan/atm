@@ -10,8 +10,8 @@ import java.util.Map;
  * Created by ivoloshyn on 6/9/2016.
  */
 public class MoneyStorageCollection {
-    private HashMap<String, HashMap<Integer, Integer>> currentBalance = new HashMap<String, HashMap<Integer, Integer>>();
     private static MoneyStorageCollection instance;
+    private HashMap<String, HashMap<Integer, Integer>> currentBalance = new HashMap<String, HashMap<Integer, Integer>>();
     private IAlgo algo;
 
     private MoneyStorageCollection(IAlgo algo) {
@@ -31,35 +31,6 @@ public class MoneyStorageCollection {
             addNominalAndNumber(currency, nominal, number);
         } else {
             addNumberToExistingNominal(currency, nominal, number);
-        }
-    }
-
-    public void removeOneNumber(String currency, int nominal) {
-        currentBalance.get(currency).put(nominal, currentBalance.get(currency).get(nominal) - 1);
-        removeNominalWithZeroNumber(currency, nominal);
-    }
-
-    public boolean isPossibleToRemoveMoney(String currency, int amount) {
-        if (amount <= getTotalMoneyForCurrency(currency)) {
-            return algo.isAlgorithmPossible(currentBalance, currency, amount);
-        } else {
-            return false;
-        }
-    }
-
-    public void removeMoney(String currency, int amount) {
-        algo.removeMoney(currentBalance, currency, amount);
-    }
-
-    public Map<String, HashMap<Integer, Integer>> getBalance() {
-        return currentBalance;
-    }
-
-    private boolean isCurrencyPresent(String currency) {
-        if (currentBalance.get(currency) == null) {
-            return false;
-        } else {
-            return true;
         }
     }
 
@@ -86,9 +57,30 @@ public class MoneyStorageCollection {
         currentBalance.get(currency).put(nominal, currentNumber + number);
     }
 
+    private boolean isCurrencyPresent(String currency) {
+        if (currentBalance.get(currency) == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public void removeOneNumber(String currency, int nominal) {
+        currentBalance.get(currency).put(nominal, currentBalance.get(currency).get(nominal) - 1);
+        removeNominalWithZeroNumber(currency, nominal);
+    }
+
     private void removeNominalWithZeroNumber(String currency, int nominal) {
         if (currentBalance.get(currency).get(nominal) == 0) {
             currentBalance.get(currency).remove(nominal);
+        }
+    }
+
+    public boolean isPossibleToRemoveMoney(String currency, int amount) {
+        if (amount <= getTotalMoneyForCurrency(currency)) {
+            return algo.isAlgorithmPossible(currentBalance, currency, amount);
+        } else {
+            return false;
         }
     }
 
@@ -100,5 +92,13 @@ public class MoneyStorageCollection {
             }
         }
         return totalMoneyForCurrency;
+    }
+
+    public void removeMoney(String currency, int amount) {
+        algo.removeMoney(currentBalance, currency, amount);
+    }
+
+    public Map<String, HashMap<Integer, Integer>> getBalance() {
+        return currentBalance;
     }
 }
