@@ -21,14 +21,12 @@ public class MinimumNotesAlgo implements IAlgo {
         while (amount > 0) {
             for (int note : getAllNotesForCurrency(currentBalance, currency)) {
                 if (amount >= note && f[amount - note] == f[amount] - 1) {
-                    System.out.println("debug: take note: " + note);
                     MoneyStorageCollection.getInstance().removeOneNumber(currency, note);
                     amount -= note;
                     break;
                 }
             }
         }
-
     }
 
     @Override

@@ -20,8 +20,9 @@ public class MoneyBox implements IMoneyBox {
     public void getMoney(String currency, int amount, ILog log) {
         if (moneyStorage.isPossibleToRemoveMoney(currency, amount)) {
             moneyStorage.removeMoney(currency, amount);
+        } else {
+            log.log(failToGetMoney);
         }
-        log.log(failToGetMoney);
     }
 
     @Override
