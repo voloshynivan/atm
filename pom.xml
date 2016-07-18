@@ -7,6 +7,15 @@
     <groupId>com.atm</groupId>
     <artifactId>atm-basic</artifactId>
     <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -17,12 +26,27 @@
                     <target>1.6</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>${failsafe.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>integration-test</goal>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
     <properties>
         <testng.version>6.9.10</testng.version>
         <surefire.maven.plugin.version>2.19.1</surefire.maven.plugin.version>
+        <junit.version>4.8.1</junit.version>
+        <failsafe.version>2.12</failsafe.version>
     </properties>
 
 </project>
