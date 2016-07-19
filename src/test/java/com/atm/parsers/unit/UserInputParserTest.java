@@ -13,25 +13,25 @@ public class UserInputParserTest {
     @Test
     public void getCurrencyPositive() {
         UserInputParser userInputParser = new UserInputParser();
-        Assert.assertEquals(userInputParser.getCurrency("+ RUR 10 20"), "RUR");
+        assertEquals(userInputParser.getCurrency("+ RUR 10 20"), "RUR");
     }
 
     @Test
     public void getNominalPositive() {
         UserInputParser userInputParser = new UserInputParser();
-        Assert.assertEquals(userInputParser.getNominal("+ RUR 10 20"), 10);
+        assertEquals(userInputParser.getNominal("+ RUR 10 20"), 10);
     }
 
     @Test
     public void getNumberPositive() {
         UserInputParser userInputParser = new UserInputParser();
-        Assert.assertEquals(userInputParser.getNumber("+ RUR 10 20"), 20);
+        assertEquals(userInputParser.getNumber("+ RUR 10 20"), 20);
     }
 
     @Test
     public void getAmountPositive() {
         UserInputParser userInputParser = new UserInputParser();
-        Assert.assertEquals(userInputParser.getAmount("- RUR 100"), 100);
+        assertEquals(userInputParser.getAmount("- RUR 100"), 100);
     }
 
 }
